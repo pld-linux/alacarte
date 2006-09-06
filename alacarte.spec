@@ -9,15 +9,16 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/alacarte/0.10/%{name}-%{version}
 # Source0-md5:	646c9d5619d25e8d7676289d892bb761
 URL:		http://www.realistanew.com/projects/alacarte/
 BuildRequires:	autoconf >= 2.53
-BuildRequires:	automake >= 1.7
+BuildRequires:	automake >= 1:1.7
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-menus-devel >= 2.16.0
 BuildRequires:	intltool >= 0.35
-BuildRequires:	pkgconfig >= 0.21
-BuildRequires:	python-pygtk-devel >= 2.9.6
-Requires(post,postun):	gtk+2 >= 2.10.2
+BuildRequires:	pkgconfig >= 1:0.21
+BuildRequires:	python-pygtk-devel >= 2:2.9.6
+Requires(post,postun):	gtk+2 >= 2:2.10.2
+Requires(post,postun):	hicolor-icon-theme
 %pyrequires_eq	python-modules
-Requires:	python-pygtk-glade >= 2.9.6
+Requires:	python-pygtk-glade >= 2:2.9.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
