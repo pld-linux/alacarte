@@ -1,12 +1,12 @@
 Summary:	Menu editor for the GNOME desktop
 Summary(pl):	Edytor menu dla GNOME
 Name:		alacarte
-Version:	0.10.0
+Version:	0.10.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/alacarte/0.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	646c9d5619d25e8d7676289d892bb761
+# Source0-md5:	3e425ad3bbfe059699a9996419dc8422
 URL:		http://www.realistanew.com/projects/alacarte/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.7
@@ -14,11 +14,11 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-menus-devel >= 2.16.0
 BuildRequires:	intltool >= 0.35
 BuildRequires:	pkgconfig >= 1:0.21
-BuildRequires:	python-pygtk-devel >= 2:2.9.6
-Requires(post,postun):	gtk+2 >= 2:2.10.2
+BuildRequires:	python-pygtk-devel >= 2:2.10.3
+Requires(post,postun):	gtk+2 >= 2:2.10.6
 Requires(post,postun):	hicolor-icon-theme
 %pyrequires_eq	python-modules
-Requires:	python-pygtk-glade >= 2:2.9.6
+Requires:	python-pygtk-glade >= 2:2.10.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,6 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/Alacarte/*.py
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{as,si}
 
 %find_lang %{name} --with-gnome
 
