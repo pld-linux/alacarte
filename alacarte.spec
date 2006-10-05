@@ -49,7 +49,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/Alacarte/*.py
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{as,si}
 
 %find_lang %{name} --with-gnome
 
