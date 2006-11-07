@@ -69,5 +69,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/Alacarte
 %{py_sitedir}/Alacarte/*.py[co]
 %{_datadir}/%{name}
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/*/*
