@@ -1,5 +1,5 @@
 Summary:	Menu editor for the GNOME desktop
-Summary(pl.UTF-8):   Edytor menu dla GNOME
+Summary(pl.UTF-8):	Edytor menu dla GNOME
 Name:		alacarte
 Version:	0.11.1.1
 Release:	1
