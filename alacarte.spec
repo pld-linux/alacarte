@@ -1,5 +1,5 @@
 Summary:	Menu editor for the GNOME desktop
-Summary(pl):	Edytor menu dla GNOME
+Summary(pl.UTF-8):   Edytor menu dla GNOME
 Name:		alacarte
 Version:	0.11.1.1
 Release:	1
@@ -27,9 +27,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Alacarte is a simple freedesktop.org compliant menu editor for GNOME
 that lets you change your menus, simply and quickly.
 
-%description -l pl
+%description -l pl.UTF-8
 Alacarte jest prostym, zgodnym z freedesktop.org edytorem menu dla
-GNOME pozwalaj±cym w szybki i ³atwy sposób dostosowaæ menu do w³asnych
+GNOME pozwalajÄ…cym w szybki i Å‚atwy sposÃ³b dostosowaÄ‡ menu do wÅ‚asnych
 potrzeb.
 
 %prep
