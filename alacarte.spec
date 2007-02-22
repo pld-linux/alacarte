@@ -1,12 +1,12 @@
 Summary:	Menu editor for the GNOME desktop
 Summary(pl.UTF-8):	Edytor menu dla GNOME
 Name:		alacarte
-Version:	0.11.1.1
+Version:	0.11.3
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/alacarte/0.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	13552666ac84759bb42689ebe3708b26
+# Source0-md5:	5ca9f07e839f64b7fcefc84cfb05aa17
 URL:		http://www.realistanew.com/projects/alacarte/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.7
@@ -16,7 +16,7 @@ BuildRequires:	intltool >= 0.35.0
 BuildRequires:	pkgconfig >= 1:0.21
 BuildRequires:	python-pygtk-devel >= 2:2.10.3
 BuildRequires:	rpmbuild(macros) >= 1.311
-Requires(post,postun):	gtk+2 >= 2:2.10.6
+Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gnome-menus-editor >= 2.16.1
 %pyrequires_eq	python-modules
