@@ -19,6 +19,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gnome-menus-editor >= 2.16.1
+Requires:	python-gnome-ui
 %pyrequires_eq	python-modules
 Requires:	python-pygtk-glade >= 2:2.10.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
