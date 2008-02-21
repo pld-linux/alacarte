@@ -1,27 +1,30 @@
 Summary:	Menu editor for the GNOME desktop
 Summary(pl.UTF-8):	Edytor menu dla GNOME
 Name:		alacarte
-Version:	0.11.3
-Release:	2
+Version:	0.11.4
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/alacarte/0.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	5ca9f07e839f64b7fcefc84cfb05aa17
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/alacarte/0.11/%{name}-%{version}.tar.bz2
+# Source0-md5:	11f688e8ff5e0001c117c3f4181139ee
 URL:		http://www.realistanew.com/projects/alacarte/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-menus-devel >= 2.16.1
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gnome-menus-devel >= 2.20.0
+BuildRequires:	intltool >= 0.37.0
 BuildRequires:	pkgconfig >= 1:0.21
-BuildRequires:	python-pygtk-devel >= 2:2.10.3
+BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
-Requires:	gnome-menus-editor >= 2.16.1
+Requires:	gnome-menus-editor >= 2.20.0
 Requires:	python-gnome-ui
 %pyrequires_eq	python-modules
-Requires:	python-pygtk-glade >= 2:2.10.3
+Requires:	python-pygtk-glade >= 2:2.12.0
+# for help
+Suggests:	gnome-user-docs >= 2.20.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -38,6 +41,9 @@ potrzeb.
 %prep
 %setup -q
 
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv po/sr@{Latn,latin}.po
+
 %build
 %{__intltoolize}
 %{__aclocal}
@@ -53,11 +59,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/Alacarte/*.py
+%py_postclean
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
-%find_lang %{name} --with-gnome
+# not supported by glibc
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/io
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,9 +78,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/*
-%dir %{py_sitedir}/Alacarte
-%{py_sitedir}/Alacarte/*.py[co]
-%{_datadir}/%{name}
-%{_desktopdir}/*.desktop
+%attr(755,root,root) %{_bindir}/alacarte
+%dir %{py_sitescriptdir}/Alacarte
+%{py_sitescriptdir}/Alacarte/*.py[co]
+%{_datadir}/alacarte
+%{_desktopdir}/alacarte.desktop
 %{_iconsdir}/hicolor/*/*/*
