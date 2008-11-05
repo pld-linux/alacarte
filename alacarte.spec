@@ -15,6 +15,7 @@ BuildRequires:	gnome-menus-devel >= 2.24.0
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	pkgconfig >= 1:0.21
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
