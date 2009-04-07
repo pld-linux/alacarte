@@ -19,7 +19,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
-Requires(post,postun):	hicolor-icon-theme
+Requires(post,postun):	hicolor-icon-theme >= 0.10-3
 Requires:	gnome-menus-editor >= 2.24.0
 Requires:	python-gnome-ui
 Requires:	python-pygobject >= 2.16.0
@@ -58,9 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %py_postclean
-
-# directory not provided by hicolor-icon-theme
-rm -rf $RPM_BUILD_ROOT%{_iconsdir}/hicolor/256x256
 
 # not supported by glibc
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/io
