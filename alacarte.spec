@@ -2,7 +2,7 @@ Summary:	Menu editor for the GNOME desktop
 Summary(pl.UTF-8):	Edytor menu dla GNOME
 Name:		alacarte
 Version:	0.12.1
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/alacarte/0.12/%{name}-%{version}.tar.bz2
@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %py_postclean
 
 # not supported by glibc
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/io
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{bem,io}
 
 %find_lang %{name}
 
