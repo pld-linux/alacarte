@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %py_postclean
 
 # not supported by glibc
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{bem,en@shaw,io}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{bem,io}
 
 %find_lang %{name}
 
