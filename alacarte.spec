@@ -10,7 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/alacarte/0.13/%{name}-%{version}
 URL:		http://www.realistanew.com/projects/alacarte/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-menus-devel >= 2.28.0
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	pkgconfig >= 1:0.21
