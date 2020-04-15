@@ -1,33 +1,34 @@
 Summary:	Menu editor for the GNOME desktop
 Summary(pl.UTF-8):	Edytor menu dla GNOME
 Name:		alacarte
-Version:	0.13.2
-Release:	2
+Version:	3.36.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/alacarte/0.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	de84e437babebe036ab8dc9a518282ca
-URL:		http://www.realistanew.com/projects/alacarte/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/alacarte/3.36/%{name}-%{version}.tar.xz
+# Source0-md5:	f890c79646c3ecfed4883d56442d1142
+URL:		https://gitlab.gnome.org/GNOME/alacarte
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	gettext-tools
-BuildRequires:	gnome-menus-devel >= 2.28.0
-BuildRequires:	intltool >= 0.37.0
+BuildRequires:	gnome-menus-devel >= 3.5.3
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig >= 1:0.21
-BuildRequires:	python-pygtk-devel >= 2:2.12.0
+BuildRequires:	python3 >= 1:3.2
+BuildRequires:	python3-pygobject3-devel >= 3.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme >= 0.10-3
-Requires:	gnome-menus-editor >= 2.28.0
-Requires:	python-gnome-ui
-Requires:	python-pygobject >= 2.16.0
-Requires:	python-pygtk-glade >= 2:2.12.0
+Requires:	gnome-menus >= 3.5.3
+Requires:	gtk+3 >= 3.0
+Requires:	python-pygobject3 >= 3.0
 # for help
-Suggests:	gnome-user-docs >= 2.24.0
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
+Suggests:	gnome-user-docs >= 3.36
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,10 +46,11 @@ potrzeb.
 %build
 %{__intltoolize}
 %{__aclocal}
-%{__automake}
 %{__autoconf}
-%configure \
-	PYTHON="/usr/bin/python"
+%{__autoheader}
+%{__automake}
+%configure
+
 %{__make}
 
 %install
@@ -77,8 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/alacarte
-%dir %{py_sitescriptdir}/Alacarte
-%{py_sitescriptdir}/Alacarte/*.py[co]
+%{py3_sitescriptdir}/Alacarte
 %{_datadir}/alacarte
 %{_desktopdir}/alacarte.desktop
-%{_iconsdir}/hicolor/*/*/*
+%{_iconsdir}/hicolor/*x*/apps/alacarte.png
+%{_mandir}/man1/alacarte.1*
