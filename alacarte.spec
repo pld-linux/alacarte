@@ -2,7 +2,7 @@ Summary:	Menu editor for the GNOME desktop
 Summary(pl.UTF-8):	Edytor menu dla GNOME
 Name:		alacarte
 Version:	3.36.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/alacarte/3.36/%{name}-%{version}.tar.xz
@@ -29,6 +29,7 @@ Requires:	gtk+3 >= 3.0
 Requires:	python-pygobject3 >= 3.0
 # for help
 Suggests:	gnome-user-docs >= 3.36
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
