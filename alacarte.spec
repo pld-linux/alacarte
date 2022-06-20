@@ -1,21 +1,20 @@
 Summary:	Menu editor for the GNOME desktop
 Summary(pl.UTF-8):	Edytor menu dla GNOME
 Name:		alacarte
-Version:	3.44.0
+Version:	3.44.2
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/alacarte/3.44/%{name}-%{version}.tar.xz
-# Source0-md5:	89bf4856e522672199075aed38c82fb5
+# Source0-md5:	fddf75e33bb43feca0049c3ee4588fb6
 URL:		https://gitlab.gnome.org/GNOME/alacarte
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	gettext-tools
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	gnome-menus-devel >= 3.5.3
-BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig >= 1:0.21
-BuildRequires:	python3 >= 1:3.3
+BuildRequires:	python3 >= 1:3.7
 BuildRequires:	python3-pygobject3-devel >= 3.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -45,12 +44,16 @@ potrzeb.
 %setup -q
 
 %build
-%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+%ifnarch x32
+	--build=%{_host} \
+	--host=%{_host} \
+%endif
+	--disable-silent-rules
 
 %{__make}
 
