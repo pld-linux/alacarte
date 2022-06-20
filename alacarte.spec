@@ -2,7 +2,7 @@ Summary:	Menu editor for the GNOME desktop
 Summary(pl.UTF-8):	Edytor menu dla GNOME
 Name:		alacarte
 Version:	3.44.2
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/alacarte/3.44/%{name}-%{version}.tar.xz
@@ -49,7 +49,7 @@ potrzeb.
 %{__autoheader}
 %{__automake}
 %configure \
-%ifnarch x32
+%if "%{_host_cpu}" != "x32"
 	--build=%{_host} \
 	--host=%{_host} \
 %endif
